@@ -14,8 +14,9 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  sides=[]
-  sides<<a<<b<<c
+  a, b, c = [a, b, c].sort
+  sides=[a,b,c]
+  raise TriangleError if a <= 0 || a + b <= c
   res=[:equilateral, :isosceles, :scalene]
   return res[sides.uniq.length-1]
 end
